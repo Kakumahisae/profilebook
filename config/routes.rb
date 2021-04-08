@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get 'homes/help'
   
   resources :stories
-  
+  resources :users
 end

@@ -24,7 +24,7 @@
               <%= link_to("ProfileBookとは？", homes_help_path) %>
             </li>
             <li>
-               <%= link_to("新規登録","#") %>
+               <%= link_to("新規登録", new_user_path) %>
             </li>
             <li>
                <%= link_to("ログイン","#") %>
@@ -33,14 +33,23 @@
                <%= link_to("ログアウト","#") %>
             </li>
             <li>
-               <%= link_to("ユーザーページ","#") %>
+               <%= link_to("ユーザーページ", stories_path) %>
             </li>
        
         </ul>
       </div>
     </nav>
     
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
     
     <%= yield %>
+    
+    <script>
+      $(function(){
+        $(".alert").fadeOut(5000);
+      });
+　　</script>
   </body>
 </html>
