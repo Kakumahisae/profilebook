@@ -10,6 +10,37 @@
   </head>
 
   <body>
+    
+     <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+      <div class="container">
+        
+        <h1 class="nav-logo"> 
+          <%= link_to("ProfileBook", root_path) %>
+        </h1>
+        
+        <ul class="nav navbar-nav navbar-right">
+          
+            <li>
+              <%= link_to("ProfileBookとは？", homes_help_path) %>
+            </li>
+            <li>
+               <%= link_to("新規登録","#") %>
+            </li>
+            <li>
+               <%= link_to("ログイン","#") %>
+            </li>
+            <li>
+               <%= link_to("ログアウト","#") %>
+            </li>
+            <li>
+               <%= link_to("ユーザーページ","#") %>
+            </li>
+       
+        </ul>
+      </div>
+    </nav>
+    
+    
     <%= yield %>
   </body>
 </html>

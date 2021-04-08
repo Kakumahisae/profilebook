@@ -1,0 +1,35 @@
+/*#######################共通###############################*/
+body {
+  background-color: #d3d3d3;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 70px;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: black;
+}
+
+/*###################ナビゲーションバー#########################*/
+.nav-logo {
+  float: left;
+}
+
+.nav {
+  padding-top: 20px;
+}
+
+.navbar-transparent {
+  margin-bottom: 0px;
+  background-color: rgba(169,169,169,0.5);
+  a {
+    color: black !important;
+  }
+
+  .navbar-brand {
+    padding: 0px;
+    margin-top: 15px;
+  }
+
+}
