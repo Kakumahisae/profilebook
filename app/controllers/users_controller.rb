@@ -10,7 +10,6 @@ class UsersController < ApplicationController
       flash[:success] = "ユーザー登録に成功しました"
       redirect_to root_path
     else
-      #flash.now[:danger] = "ユーザー登録に失敗しました"
       render :new
     end  
   end
@@ -18,6 +17,6 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name,:email)
+    params.require(:user).permit(:name,:email,:password,:password_confirmation)
   end  
 end
