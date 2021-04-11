@@ -7,6 +7,9 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         name: 名前
+      story:
+        title: タイトル
+        description: あらすじ
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

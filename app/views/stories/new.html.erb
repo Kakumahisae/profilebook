@@ -1,0 +1,22 @@
+<h1>物語登録</h1>
+
+<% if @story.errors.any? %>
+  <% @story.errors.full_messages.each do |message| %>
+    <div class="error_message">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+                         
+<%= form_with model: @story, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label "タイトル", class: 'form_label' %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label "あらすじ", class: 'form_label' %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+  
+  <%= f.submit "物語登録" %>
+<% end %>  

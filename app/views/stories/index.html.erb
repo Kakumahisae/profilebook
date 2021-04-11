@@ -1,7 +1,12 @@
 <h1>物語一覧</h1>
 
-<ul>
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-</ul>
+
+  <% @stories.each do |story| %>
+    <div class ="story-title"> 
+      <%= story.title %>
+    </div>
+  <% end %>  
+
+  <div class="new-story-botton">
+    <%= link_to("物語登録", new_story_path) %>
+  </div>
