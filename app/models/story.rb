@@ -4,7 +4,7 @@ class Story < ApplicationRecord
   
   validates :description, presence: true
   
-  validates :user_id, presence: true
+  #validates :user_id, presence: trueこれ不要
   
   belongs_to :user
 end
