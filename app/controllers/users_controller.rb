@@ -14,6 +14,20 @@ class UsersController < ApplicationController
     end  
   end
   
+  def edit
+    @user = current_user
+  end
+  
+  def update
+    @user = User.find_by(id: params[:id])
+    if @user.update(user_params)
+      redirect_to stories_path, success: 'ユーザー情報を更新しました'
+    else
+      render :edit
+    end  
+    
+  end  
+  
   private
   
   def user_params
