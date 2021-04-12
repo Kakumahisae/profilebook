@@ -40,7 +40,6 @@ class StoriesController < ApplicationController
   def destroy
   end  
   
-  
   private
   def story_params
     params.require(:story).permit(:title,:description)
