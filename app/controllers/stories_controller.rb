@@ -38,6 +38,12 @@ class StoriesController < ApplicationController
   end
   
   def destroy
+    @story = Story.find_by(id: params[:id])
+    if @story.destroy
+      redirect_to stories_path, success: "物語を削除しました"
+    else
+      render :edit, danger: '削除に失敗しました'
+    end  
   end  
   
   private
