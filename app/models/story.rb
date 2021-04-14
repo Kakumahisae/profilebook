@@ -5,4 +5,5 @@ class Story < ApplicationRecord
   #validates :user_id, presence: trueこれ不要
   
   belongs_to :user
+  has_many :characters
 end

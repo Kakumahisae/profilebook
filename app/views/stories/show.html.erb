@@ -5,5 +5,5 @@
 <%= link_to("物語を削除する", story_path(@story.id), method: :delete, data:{confirm: '本当に削除しますか？削除後の復元はできません'}) %>
 
 <div class="character-logo">
-  <%= link_to("登場人物一覧", characters_path, class: 'character-index-logo') %>
+  <%= link_to("登場人物一覧", story_characters_path(@story), class: 'character-index-logo') %>
 </div>

@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_13_012738) do
+ActiveRecord::Schema.define(version: 2021_04_14_012806) do
 
   create_table "characters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name"
     t.text "gender"
-    t.integer "user_id"
     t.integer "story_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
