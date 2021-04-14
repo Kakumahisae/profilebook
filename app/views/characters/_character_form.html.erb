@@ -6,8 +6,10 @@
   <% end %>
 <% end %>
 
-<%= @story.title %>
+<!--<= @story.title %>-->
+
 <%= form_with model: @character,url: story_characters_path, local: true do |f| %>
+  <%= f.hidden_field :story_id, value: @character.story_id %>
   <div class="form-group">
     <%= f.label "名前", class: 'form_label' %>
     <%= f.text_field :name, class: 'form-control' %>
@@ -18,7 +20,7 @@
       <%= f.text_field :gender, class: 'form-control' %>
     </div>
   </div>
-    <!--< f.hideen_field :story_id,value: @character.story_id %>-->
+    
   
     <%= f.submit button_text %>
   

@@ -10,6 +10,11 @@ ja:
       story:
         title: タイトル
         description: あらすじ
+      character:
+        name: 名前
+        gender: 性別
+        story_id: ストーリーid
+        story: ストーリーモデルに書いてあるやつ
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

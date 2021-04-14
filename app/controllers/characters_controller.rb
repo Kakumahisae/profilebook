@@ -11,8 +11,12 @@ class CharactersController < ApplicationController
   end
   
   def create
-    @story = Story.find_by(id: params[:story_id])
-    render :index
+    @character = Character.new(character_params)
+    if @character.save
+      redirect_to story_characters_path, success: '新しく人物を追加しました'
+    else
+      render :new
+    end  
   end
   
   def show
@@ -23,6 +27,6 @@ class CharactersController < ApplicationController
   
   private
   def character_params
-    params.require(:character).permit(:name,:gender)
+    params.require(:character).permit(:name,:gender,:story_id)
   end  
 end
