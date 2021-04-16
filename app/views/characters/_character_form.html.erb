@@ -7,8 +7,9 @@
 <% end %>
 
 <%= @story.title %>
-
-<%= form_with model: @character,url: story_characters_path, local: true do |f| %>
+　　　　　　　　　　　　　　　　　　　　　　　　　↓createではここに飛ぶが、updateだと/stories/13/charactersを探してしまう。飛びたいのはstory_characterのpath
+<%= form_with model: @character, url: story_characters_path, local: true do |f| %>
+  <!--別解 <= f.hidden_field :story_id %>-->
   <%= f.hidden_field :story_id, :value => @story.id %>
   
   <div class="form-group">
@@ -23,6 +24,6 @@
   </div>
     
   
-    <%= f.submit button_text %>
+    <%= f.submit chara_button_text %>
   
 <% end %>  

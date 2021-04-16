@@ -1,20 +1,18 @@
 class CharactersController < ApplicationController
+  before_action :set_story, only: [:index, :new, :create,:show,:edit]
   
   #なぜ動いたのか
   def index
     @user = current_user
-    @story = Story.find_by(id: params[:story_id])
     @characters = @story.characters
   end
   
-  #character.story.title
+  #別解 @character = Character.new(story_id: @story.id)
   def new
-    @story = Story.find_by(id: params[:story_id])
     @character = Character.new
   end
   
   def create
-    @story = Story.find_by(id: params[:story_id])
     @character = Character.new(character_params)
     if @character.save
       redirect_to story_characters_path, success: '新しく人物を追加しました'
@@ -24,14 +22,34 @@ class CharactersController < ApplicationController
   end
   
   def show
+    @character = Character.find_by(id: params[:id])
   end
   
   def destroy
+  end
+  
+  def edit
+    @character = Character.find_by(id: params[:id])
+  end
+  
+  def update
+    @character = Character.find_by(id: params[:id])
+    if @character.update(character_params)
+      redirect_to story_characters_path, success: '人物を更新しました'
+    else
+      render :edit
+    end  
   end  
+    
   
   #story_idがなかった
   private
   def character_params
     params.require(:character).permit(:name,:gender,:story_id)
-  end  
+  end
+  
+  def set_story
+    @story = Story.find_by(id: params[:story_id])
+  end
+  
 end
