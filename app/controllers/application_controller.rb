@@ -14,4 +14,13 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
   
+  ###########アクセス制限 仮 ########
+  private
+    def logged_in_user
+      unless logged_in?
+        redirect_to login_url
+        flash[:info] = "ログインして下さい"
+      end
+    end
+  
 end

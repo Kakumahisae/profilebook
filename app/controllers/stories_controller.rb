@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  #################アクセス制限 仮##############
+  before_action :logged_in_user, only:[:edit, :update, :destroy,:index]
   
   def index
     @user = current_user
@@ -17,8 +19,6 @@ class StoriesController < ApplicationController
       render :new
     end  
   end
-  
- 
   
   def show
     @story = Story.find_by(id: params[:id])

@@ -1,5 +1,7 @@
 class CharactersController < ApplicationController
   before_action :set_story, only: [:index, :new, :create,:show,:edit]
+  ######アクセス制限######3#
+  before_action :logged_in_user, only:[:edit,:new,:update, :destroy,:index]
   
   #なぜ動いたのか
   def index
