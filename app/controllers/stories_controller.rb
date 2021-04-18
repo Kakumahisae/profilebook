@@ -1,6 +1,7 @@
 class StoriesController < ApplicationController
+  before_action :story_find, only:[:show,:edit,:update,:destroy]
   #################アクセス制限 仮##############
-  before_action :logged_in_user, only:[:edit, :update, :destroy,:index]
+  before_action :logged_in_user, only:[:index, :new, :show, :edit]
   
   def index
     @user = current_user
@@ -21,15 +22,12 @@ class StoriesController < ApplicationController
   end
   
   def show
-    @story = Story.find_by(id: params[:id])
   end  
   
   def edit
-    @story = Story.find_by(id: params[:id])
   end  
   
   def update
-    @story = Story.find_by(id: params[:id])
     if @story.update(story_params)
       redirect_to story_path, success: "物語情報を更新しました"
     else
@@ -38,7 +36,6 @@ class StoriesController < ApplicationController
   end
   
   def destroy
-    @story = Story.find_by(id: params[:id])
     if @story.destroy
       redirect_to stories_path, success: "物語を削除しました"
     else
@@ -49,6 +46,10 @@ class StoriesController < ApplicationController
   private
   def story_params
     params.require(:story).permit(:title,:description)
-  end  
+  end
+  
+  def story_find
+    @story = Story.find_by(id: params[:id])
+  end
   
 end
