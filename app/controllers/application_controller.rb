@@ -22,5 +22,6 @@ class ApplicationController < ActionController::Base
         flash[:info] = "ログインして下さい"
       end
     end
-  
+    
+    
 end
