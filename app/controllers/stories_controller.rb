@@ -2,7 +2,8 @@ class StoriesController < ApplicationController
   before_action :story_find, only:[:show,:edit,:update,:destroy,:index]
   #################アクセス制限 仮##############
   before_action :logged_in_user, only:[:index, :new, :show, :edit]
-  before_action :kari, only:[:index, :new, :show, :edit]
+ #before_action :ensure_corect_user, only:[:index, :new, :show, :edit]
+  
   
   def index
     @user = current_user
@@ -56,8 +57,9 @@ class StoriesController < ApplicationController
   ######無理
   
   def ensure_corect_user
-    # @story.user.idとは別のuser.idを持つ人を弾きたい↓
+    # @story.user.idとは別のuser.idを持つ人を弾きたい↓（ログインしてない人もここで一緒に弾けるなら弾きたい。apiconでは？
     if User.where(id:[nil, current_user.id != @story.user.id])
+      flash[:warning] = "権限なし"
       redirect_to root_path
     end  
   end
